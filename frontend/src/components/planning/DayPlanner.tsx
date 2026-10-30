@@ -39,7 +39,7 @@ export default function DayPlanner({ trip, attractions, routeId, onPlanSaved }: 
           end_date: trip.end_date ?? '',
           total_days: duration ?? 7,
         },
-        group: trip.group_members ?? [],
+        group: (trip.group_members ?? []).map((m) => ({ name: m.name, age: m.age ?? undefined })),
         attractions,
       })
       setSuggestion(result)
@@ -78,7 +78,7 @@ export default function DayPlanner({ trip, attractions, routeId, onPlanSaved }: 
                 ? { stage_id: stageData.id, attraction_id: attraction.id, order_index: idx }
                 : null
             })
-            .filter(Boolean)
+            .filter((x): x is { stage_id: string; attraction_id: string; order_index: number } => x !== null)
 
           if (attractionInserts.length > 0) {
             await supabase.from('stage_attractions').insert(attractionInserts)
