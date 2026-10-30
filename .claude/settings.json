@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:/Users/hoeztu/travel-planner\" status)",
+      "Bash(git -C \"C:/Users/hoeztu/travel-planner\" add frontend/vercel.json docker-compose.yml)",
+      "Bash(git -C C:/Users/hoeztu/travel-planner commit -m ' *)",
+      "Bash(git -C \"C:/Users/hoeztu/travel-planner\" push)",
+      "Bash(git -C \"C:/Users/hoeztu/travel-planner\" add -A)"
+    ]
+  }
+}
